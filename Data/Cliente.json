@@ -1,0 +1,43 @@
+{
+    "Clientes":[
+        {       
+         "Id": 1111,
+         "Email" : "Angeles@gamil.com",
+         "Name" : "Angeles",
+         "Pasword": "Melones123",
+         "Localitation": "Chixulub Puerto, Calle 23c  x231 y 123",
+         "Number" :1144223254,
+         "Animal data": [
+            {
+                "id Animal" : "A1B2",
+                "Animal" : "Gato",
+                "Name pet" : "Pulgoso",
+                "Weigtn": "2 kg",
+                "Breed": "Africano"
+            },{
+                "id Animal" : "A1B9",
+                "Animal" : "Gato",
+                "Name pet" : "Pollo",
+                "Weigtn": "2.5 kg",
+                "Breed": "TRonco de bambu asiatico"
+            }
+         ]
+        },{       
+            "Id": 2222,
+            "Email" : "Angeles@gamil.com",
+            "Name" : "Angeles",
+            "Pasword": "Melones123",
+            "Localitation": "Chixulub Puerto, Calle 23c  x231 y 123",
+            "Number" :1144223254,
+            "Animal data": [
+               {
+                   "ID Animal" : "A2B2",
+                   "Animal" : "Perro",
+                   "Name pet" : "Sandia",
+                   "Weigtn": "4 kg",
+                   "Breed": "ELdenring"
+               }
+            ]
+           }
+    ]
+}

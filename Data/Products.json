@@ -1,0 +1,816 @@
+[
+  {
+    "Id": 1,
+    "Name": "PEDIGREE® Croquetas Adulto Razas Pequeñas Con Res Y Vegetales",
+    "Brand": "PEDIGREE",
+    "Pet": "Perro",
+    "Category": [
+      "Alimento",
+      "Alimento Seco"
+    ],
+    "SizePet": [
+      "Raza Pequeña"
+    ],
+    "Age": "Adulto",
+    "weight": "10kg",
+    "Price": 459,
+    "Stock": 10
+  },
+  {
+    "Id": 2,
+    "Name": "Royal Canin Alimento Seco para Perro Adulto Raza Grande",
+    "Brand": "Royal Canin",
+    "Pet": "Perro",
+    "Category": [
+      "Alimento",
+      "Alimento Seco"
+    ],
+    "SizePet": [
+      "Raza Grande"
+    ],
+    "Age": "Adulto",
+    "weight": "13.6kg",
+    "Price": 1987.5,
+    "Stock": 12
+  },
+  {
+    "Id": 3,
+    "Name": "Royal Canin Alimento Húmedo para Perro Adulto Todas las Razas Receta Pollo",
+    "Brand": "Royal Canin",
+    "Pet": "Perro",
+    "Category": [
+      "Alimento",
+      "Alimento Húmedo"
+    ],
+    "SizePet": [
+      "Raza Pequeña",
+      "Raza Mediana",
+      "Raza Grande"
+    ],
+    "Age": "Adulto",
+    "weight": "385g",
+    "Price": 105,
+    "Stock": 29
+  },
+  {
+    "Id": 4,
+    "Name": "Pro Plan Urinary Alimento Seco para Gato Adulto Receta Pollo y Arroz",
+    "Brand": "Purina",
+    "Pet": "Gato",
+    "Category": [
+      "Alimento",
+      "Alimento Seco"
+    ],
+    "SizePet": [
+      "Raza Pequeña",
+      "Raza Grande",
+      "Raza Grande"
+    ],
+    "Age": "Adulto",
+    "weight": "3kg",
+    "Price": 710.5,
+    "Stock": 40
+  },
+  {
+    "Id": 5,
+    "Name": "Sophresh Advanced Odor Control Arena de Arcilla Aglutinante sin Esencia para Gato",
+    "Brand": "Sophresh",
+    "Pet": "Gato",
+    "Category": [
+      "Limpieza"
+    ],
+    "SizePet": [
+      "Raza Pequeña",
+      "Raza Grande",
+      "Raza Grande"
+    ],
+    "Age": "",
+    "weight": "18.1 kg",
+    "Price": 351.2,
+    "Stock": 30
+  },
+  {
+    "Id": 6,
+    "Name": "You & Me Mueble para Gato Tipo Árbol de 5 Niveles con Juguete y Arco",
+    "Brand": "You & Me",
+    "Pet": "Gato",
+    "Category": [
+      "Juguetes"
+    ],
+    "SizePet": [
+      "Raza Pequeña",
+      "Raza Grande",
+      "Raza Grande"
+    ],
+    "Age": "",
+    "weight": "",
+    "Price": 2174.6,
+    "Stock": 15
+  },
+  {
+    "Id": 7,
+    "Name": "Royal Canin Hairball Alimento Seco para Gato Adulto Control Bolas de Pelo Receta Pollo",
+    "Brand": "Royal Canin",
+    "Pet": "Gato",
+    "Category": [
+      "Alimento",
+      "Alimento Seco",
+      "Aseo"
+    ],
+    "SizePet": [
+      "Raza Pequeña",
+      "Raza Grande",
+      "Raza Grande"
+    ],
+    "Age": "Adulto",
+    "weight": "2.7kg",
+    "Price": 1000,
+    "Stock": 100
+  },
+  {
+    "Id": 8,
+    "Name": "Royal Canin Alimento Seco para Gato Adulto de Interior Receta Pollo",
+    "Brand": "Royal Canin",
+    "Pet": "Gato",
+    "Category": [
+      "Alimento",
+      "Alimento Seco"
+    ],
+    "SizePet": [
+      "Raza Pequeña",
+      "Raza Grande",
+      "Raza Grande"
+    ],
+    "Age": "Adulto",
+    "weight": "3.1kg",
+    "Price": 800,
+    "Stock": 9
+  },
+  {
+    "Id": 9,
+    "Name": "Latipaw Dinosaurs Set de Juguetes Dino para Gato, 3 Piezas",
+    "Brand": "Latipaw",
+    "Pet": "Gato",
+    "Category": [
+      "Juguetes"
+    ],
+    "SizePet": [
+      "Raza Pequeña",
+      "Raza Grande",
+      "Raza Grande"
+    ],
+    "Age": "",
+    "weight": "",
+    "Price": 100,
+    "Stock": 15
+  },
+  {
+    "Id": 10,
+    "Name": "Tetra Reptomin Pellet Flotante para Tortuga Acuática, 650 g",
+    "Brand": "Tetra",
+    "Pet": "Tortugas",
+    "Category": [
+      "Alimento"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": "650g",
+    "Price": 562,
+    "Stock": 100
+  },
+  {
+    "Id": 11,
+    "Name": "Mazuri Tortoise Diet Alimento en Pellet para Tortuga",
+    "Brand": "Mazuri",
+    "Pet": "Tortugas",
+    "Category": [
+      "Alimento"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": "500g",
+    "Price": 185,
+    "Stock": 142
+  },
+  {
+    "Id": 12,
+    "Name": "You & Me Hábitat Vertical para Loro, Grande",
+    "Brand": "You & Me",
+    "Pet": "Aves",
+    "Category": [
+      "Accesorios"
+    ],
+    "SizePet": "Grande",
+    "Age": "",
+    "weight": "",
+    "Price": 5924.25,
+    "Stock": 5
+  },
+  {
+    "Id": 13,
+    "Name": "Versele-Laga NutriBird P15 Tropical Alimento para Loros y Psitácidos",
+    "Brand": "Versele-Laga",
+    "Pet": "Aves",
+    "Category": [
+      "Alimento"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": "1kg",
+    "Price": 342,
+    "Stock": 45
+  },
+  {
+    "Id": 14,
+    "Name": "Krukets Premios para Loro",
+    "Brand": "Aves",
+    "Pet": "Aves",
+    "Category": [
+      "Alimento",
+      "Premio"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": "90kg",
+    "Price": 60,
+    "Stock": 120
+  },
+  {
+    "Id": 15,
+    "Name": "Healthy Select Mijo en Trozos Especial para Aves Canoras y Psitácidos",
+    "Brand": "Healthy Select",
+    "Pet": "Aves",
+    "Category": [
+      "Alimento"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": "141kg",
+    "Price": 82.5,
+    "Stock": 140
+  },
+  {
+    "Id": 16,
+    "Name": "Bootique Juguete de Peluche de Araña Morada para Perro",
+    "Brand": "Bootique",
+    "Pet": "Perro",
+    "Category": [
+      "Juguetes"
+    ],
+    "SizePet": [
+      "Raza Pequeña",
+      "Raza Grande",
+      "Raza Grande"
+    ],
+    "Age": "",
+    "weight": "",
+    "Price": 190,
+    "Stock": 61
+  },
+  {
+    "Id": 17,
+    "Name": "Latipaw Disfraz Modelo de Araña Negra para Perro",
+    "Brand": "Latipaw",
+    "Pet": "Perro",
+    "Category": [
+      "Accesorios"
+    ],
+    "SizePet": [
+      "Raza Mediana"
+    ],
+    "Age": "",
+    "weight": "",
+    "Price": 400,
+    "Stock": 79
+  },
+  {
+    "Id": 18,
+    "Name": "Well & Good Paquete de Rodillos Quita pelo para Mascota",
+    "Brand": "Well & Good",
+    "Pet": "Perro",
+    "Category": [
+      "Limpieza",
+      "Aseo"
+    ],
+    "SizePet": [
+      "Raza Pequeña",
+      "Raza Grande",
+      "Raza Grande"
+    ],
+    "Age": "",
+    "weight": "",
+    "Price": 195,
+    "Stock": 189
+  },
+  {
+    "Id": 19,
+    "Name": "Tetra Acuario para Peces, 75 L",
+    "Brand": "Tetra",
+    "Pet": "Peces",
+    "Category": [
+      "Accesorios"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": "",
+    "Price": 1125,
+    "Stock": 30
+  },
+  {
+    "Id": 20,
+    "Name": "Tetra Fin Alimento en Hojuelas para Goldfish",
+    "Brand": "Tetra",
+    "Pet": "Peces",
+    "Category": [
+      "Alimento"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": "200g",
+    "Price": 259,
+    "Stock": 100
+  },
+  {
+    "Id": 21,
+    "Name": "Penn Plax Cráneo de Cristal Naranja de Decoración para Acuario",
+    "Brand": "Penn Plax",
+    "Pet": "Peces",
+    "Category": [
+      "Accesorios"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": "",
+    "Price": 30,
+    "Stock": 10
+  },
+  {
+    "Id": 22,
+    "Name": "Glofish Planta Azul",
+    "Brand": "Glofish",
+    "Pet": "Peces",
+    "Category": [
+      "Accesorios"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": " ",
+    "Price": 50,
+    "Stock": 120
+  },
+  {
+    "Id": 23,
+    "Name": "Glofish Barriles Glo",
+    "Brand": "Glofish",
+    "Pet": "Peces",
+    "Category": [
+      "Accesorios"
+    ],
+    "SizePet": " ",
+    "Age": " ",
+    "weight": " ",
+    "Price": 42,
+    "Stock": 29
+  },
+  {
+    "Id": 24,
+    "Name": "Azoo 9 en 1 Alimento Tipo Micro Pellet Flotante para Pez Betta",
+    "Brand": "Azoo",
+    "Pet": "Peces",
+    "Category": [
+      "Accesorios"
+    ],
+    "SizePet": " ",
+    "Age": " ",
+    "weight": "20g",
+    "Price": 67.5,
+    "Stock": 45
+  },
+  {
+    "Id": 25,
+    "Name": "Tetra Weekend Alimentador de Liberación Prolongada",
+    "Brand": "Tetra",
+    "Pet": "Peces",
+    "Category": [
+      "Alimento"
+    ],
+    "SizePet": " ",
+    "Age": "",
+    "weight": "22kg",
+    "Price": 67.69,
+    "Stock": 30
+  },
+  {
+    "Id": 26,
+    "Name": "Azoo Esponja de Filtro de Alta Resistencia, 3.5 cm Largo x 8 cm Ancho x 13 cm Alto",
+    "Brand": "Azoo",
+    "Pet": "Peces",
+    "Category": [
+      "Limpieza",
+      "Aseo"
+    ],
+    "SizePet": " ",
+    "Age": "",
+    "weight": "",
+    "Price": 101.25,
+    "Stock": 150
+  },
+  {
+    "Id": 27,
+    "Name": "Imagitarium Repuesto de Carbón Activo para Filtro de Acuario, 1 Pieza",
+    "Brand": "Imagitarium",
+    "Pet": "Peces",
+    "Category": [
+      "Limpieza",
+      "Aseo"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": "",
+    "Price": 142.5,
+    "Stock": 103
+  },
+  {
+    "Id": 28,
+    "Name": "Imagitarium Acondicionador para Acuarios",
+    "Brand": "Imagitarium",
+    "Pet": "Peces",
+    "Category": [
+      "Limpieza"
+    ],
+    "SizePet": " ",
+    "Age": "",
+    "weight": "473ml",
+    "Price": 180,
+    "Stock": 90
+  },
+  {
+    "Id": 29,
+    "Name": "Imagitarium Red Telescópica para Peces",
+    "Brand": "Imagitarium",
+    "Pet": "Peces",
+    "Category": [
+      "Accesorios"
+    ],
+    "SizePet": " ",
+    "Age": "",
+    "weight": "",
+    "Price": 60,
+    "Stock": 150
+  },
+  {
+    "Id": 30,
+    "Name": "Imagitarium Submarino Amarillo Decorativo para Acuario",
+    "Brand": "Imagitarium",
+    "Pet": "Peces",
+    "Category": [
+      "Accesorios"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": " ",
+    "Price": 35.25,
+    "Stock": 167
+  },
+  {
+    "Id": 31,
+    "Name": "Oxbow Alimento Garden Select para Conejo Adulto",
+    "Brand": "Oxbow",
+    "Pet": "Conejo",
+    "Category": [
+      "Alimento"
+    ],
+    "SizePet": "",
+    "Age": "Adulto",
+    "weight": "1.8kg",
+    "Price": 330,
+    "Stock": 190
+  },
+  {
+    "Id": 32,
+    "Name": "Lixit Bañera de Fácil Instalación, 12 cm Diámetro",
+    "Brand": "Lixit",
+    "Pet": "Aves",
+    "Category": [
+      "Aseo",
+      "Limpieza"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": "",
+    "Price": 210,
+    "Stock": 230
+  },
+  {
+    "Id": 33,
+    "Name": "JW Pet Company Dispensador de Mijo, 20 cm Largo",
+    "Brand": "JW Pet Company",
+    "Pet": "Aves",
+    "Category": [
+      "Accesorios"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": "",
+    "Price": 34.5,
+    "Stock": 160
+  },
+  {
+    "Id": 34,
+    "Name": "JW Pet Company Bolsa Disco con Campana, 15 cm Largo",
+    "Brand": "JW Pet Company",
+    "Pet": "Aves",
+    "Category": [
+      "Juguetes"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": "",
+    "Price": 45.75,
+    "Stock": 145
+  },
+  {
+    "Id": 35,
+    "Name": "JW Pet Company Juguete Aros Olímpicos para Aves",
+    "Brand": "JW Pet Company",
+    "Pet": "Aves",
+    "Category": [
+      "Juguetes"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": "",
+    "Price": 43.5,
+    "Stock": 202
+  },
+  {
+    "Id": 36,
+    "Name": "Mazuri Ferret Diet Alimento Seco para Hurón",
+    "Brand": "Mazuri",
+    "Pet": "Hurón",
+    "Category": [
+      "Alimento",
+      "Alimento Seco"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": "1kg",
+    "Price": 318.75,
+    "Stock": 230
+  },
+  {
+    "Id": 37,
+    "Name": "Oxbow Alimento Esencial para Hurón",
+    "Brand": "Oxbow",
+    "Pet": "Hurón",
+    "Category": [
+      "Alimento"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": "1.8kg",
+    "Price": 438.75,
+    "Stock": 123
+  },
+  {
+    "Id": 38,
+    "Name": "Kaytee Túnel Colgante, 13.97 cm Largo x 17.78 cm Ancho",
+    "Brand": "Kaytee",
+    "Pet": "Cuyos",
+    "Category": [
+      "Juguetes",
+      "Accesorios"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": "",
+    "Price": 153.75,
+    "Stock": 109
+  },
+  {
+    "Id": 39,
+    "Name": "You & Me Pelotas Buzz para Pequeños Mamíferos",
+    "Brand": "You & Me",
+    "Pet": [
+      "Hurón",
+      "Conejo"
+    ],
+    "Category": [
+      "Juguetes"
+    ],
+    "SizePet": "",
+    "Age": "",
+    "weight": "",
+    "Price": 33.75,
+    "Stock": 230
+  },
+  {
+    "Id": 40,
+    "Name": "Croquetas Nupec Adulto de Raza Mediana y Grande",
+    "Brand": "Nupec",
+    "Pet": "Perro",
+    "Category": [
+      "Alimento"
+    ],
+    "SizePet": [
+      "Raza Mediana",
+      "Raza Grande"
+    ],
+    "Age": "Adulto",
+    "weight": "20kg",
+    "Price": 1650,
+    "Stock": 150
+  },
+  {
+    "Id": 41,
+    "Name": "Croquetas Nupec Adulto de Raza Mediana y Grande",
+    "Brand": "Nupec",
+    "Pet": "Perro",
+    "Category": [
+      "Alimento"
+    ],
+    "SizePet": [
+      "Raza Mediana",
+      "Raza Grande"
+    ],
+    "Age": "Adulto",
+    "weight": "8kg",
+    "Price": 869,
+    "Stock": 190
+  },
+  {
+    "Id": 42,
+    "Name": "Croquetas para perro Nupec Adulto Raza Pequeña",
+    "Brand": "Nupec",
+    "Pet": "Perro",
+    "Category": [
+      "Alimento"
+    ],
+    "SizePet": [
+      "Raza Pequeña"
+    ],
+    "Age": "Adulto",
+    "weight": "8kg",
+    "Price": 829.9,
+    "Stock": 260
+  },
+  {
+    "Id": 43,
+    "Name": "Alimento para Perro Purina Beneful Adulto Todos los Tamaños Salud Radiante Salmón",
+    "Brand": "Purina",
+    "Pet": "Perro",
+    "Category": [
+      "Alimento"
+    ],
+    "SizePet": [
+      "Raza Pequeña",
+      "Raza Mediana",
+      "Raza Grande"
+    ],
+    "Age": "Adulto",
+    "weight": "10kg",
+    "Price": 620,
+    "Stock": 166
+  },
+  {
+    "Id": 44,
+    "Name": "Whiskas alimento para Gatos Adultos Carne Receta Orginal",
+    "Brand": "Whiskas",
+    "Pet": "Gato",
+    "Category": [
+      "Alimento"
+    ],
+    "SizePet": [
+      "Raza Pequeña",
+      "Raza Mediana",
+      "Raza Grande"
+    ],
+    "Age": "Adulto",
+    "weight": "20kg",
+    "Price": 929.35,
+    "Stock": 158
+  },
+  {
+    "Id": 45,
+    "Name": "Croqueta para gato Purina Cat Chow Adulto todos los tamaños",
+    "Brand": "Purina",
+    "Pet": "Gato",
+    "Category": [
+      "Alimento"
+    ],
+    "SizePet": [
+      "Raza Pequeña",
+      "Raza Mediana",
+      "Raza Grande"
+    ],
+    "Age": "Adulto",
+    "weight": "15kg",
+    "Price": 820,
+    "Stock": 222
+  },
+  {
+    "Id": 46,
+    "Name": "Croqueta para gato Nucat Adulto Adulto todas las razas",
+    "Brand": "Nucat",
+    "Pet": "Gato",
+    "Category": [
+      "Alimento"
+    ],
+    "SizePet": [
+      "Raza Pequeña",
+      "Raza Mediana",
+      "Raza Grande"
+    ],
+    "Age": "Adulto",
+    "weight": "15kg",
+    "Price": 745.52,
+    "Stock": 279
+  },
+  {
+    "Id": 47,
+    "Name": "Croqueta para gato Gatina Original Adulto pollo",
+    "Brand": "Purina",
+    "Pet": "Gato",
+    "Category": [
+      "Alimento"
+    ],
+    "SizePet": [
+      "Raza Pequeña",
+      "Raza Mediana",
+      "Raza Grande"
+    ],
+    "Age": "Adulto",
+    "weight": "9kg",
+    "Price": 449,
+    "Stock": 129
+  },
+  {
+    "Id": 48,
+    "Name": "Alimento para perro Diamond Premium",
+    "Brand": "Diamond",
+    "Pet": "Perro",
+    "Category": [
+      "Alimento"
+    ],
+    "SizePet": [
+      "Raza Pequeña",
+      "Raza Mediana",
+      "Raza Grande"
+    ],
+    "Age": "Adulto",
+    "weight": "18kg",
+    "Price": 1384.99,
+    "Stock": 199
+  },
+  {
+    "Id": 49,
+    "Name": "Croqueta ZooFeed Adulto Razas Medianas y Grandes Carne, Pollo",
+    "Brand": "ZooFeed",
+    "Pet": "Perro",
+    "Category": [
+      "Alimento"
+    ],
+    "SizePet": [
+      "Raza Mediana",
+      "Raza Grande"
+    ],
+    "Age": "Adulto",
+    "weight": "20kg",
+    "Price": 1630,
+    "Stock": 290
+  },
+  {
+    "Id": 2,
+    "Name": "Royal Canin Alimento Seco para Perro Adulto Raza Grande",
+    "Brand": "Royal Canin",
+    "Pet": "Perro",
+    "Category": [
+      "Alimento",
+      "Alimento Seco"
+    ],
+    "SizePet": [
+      "Raza Grande"
+    ],
+    "Age": "Adulto",
+    "weight": "13.6kg",
+    "Price": 1987.5,
+    "Stock": 12
+  },
+  {
+    "Id": 2,
+    "Name": "Royal Canin Alimento Seco para Perro Adulto Raza Grande",
+    "Brand": "Royal Canin",
+    "Pet": "Perro",
+    "Category": [
+      "Alimento",
+      "Alimento Seco"
+    ],
+    "SizePet": [
+      "Raza Grande"
+    ],
+    "Age": "Adulto",
+    "weight": "13.6kg",
+    "Price": 1987.5,
+    "Stock": 12
+  }
+]

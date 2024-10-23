@@ -1,0 +1,28 @@
+[
+        {
+            "Id":1, 
+            "Name": "Gelipe",
+            "LastName": "Ek",
+            "Place": "Calle 19b x 4 y 5 Paseos de vergel",
+            "Suburb": "Vergel",
+            "NameStore": "Los 3 hermanos",
+            "Appointment":[
+                        {
+                            "Idcliente": 1111,
+                            "Idofappointment": 2222,
+                            "appointment" :"24-09-24",
+                            "Hours": "13:00",
+                            "Coments":"Muy dosil al tacto"
+
+                        },
+                        {
+                            "Idcliente": 1111,
+                            "Idofappointment": 13123,
+                            "appointment" :"24-09-24",
+                            "Hours": "15:00",
+                            "Coments":"Agresivo, Muerde manos"
+
+                        }
+                    ]
+        }
+]
