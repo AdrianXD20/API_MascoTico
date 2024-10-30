@@ -7,20 +7,19 @@ const swaggerUI = require('swagger-ui-express');
 const specs = require('./swagger/swagger.js');
 const env = require('dotenv').config();
 
-// Controladores
 const authController = require('./Controllers/authController'); 
 const userController = require('./Controllers/userController'); 
 
-// Importar las rutas
-const busproductoRoutes = require('./routes/Buscador_Routers');
-const NuevosProductos = require('./routes/NuevoProducto_Router');
-const ActNuevosProductos = require('./routes/ActualizarProd_Routers');
-const EliminarProductoRoutes = require('./routes/EliminarProducto_Router');
+const productoRoutes = require('./routes/productoRoutes.js')
+const mascotasRoutes = require('./routes/mascotasRoutes.js')
+const citasRoutes = require('./routes/citaRoutes.js')
+
 
 const allowed = [
     'https://alexyah064.github.io', 
     'http://127.0.0.1:5501', 
-    'http://localhost:3000'
+    'http://localhost:3000',
+    'mysql://uq92kg8809ftify2:GzKZ4C98MmKvQvv32tP1@bpdddt3swjtee4chka49-mysql.services.clever-cloud.com:3306/bpdddt3swjtee4chka49%20Host%20bpdddt3swjtee4chka49-mysql.services.clever-cloud.com'
 ];
 
 app.use(cors({
@@ -42,11 +41,10 @@ app.use(express.static('Models'));
 app.use(body.urlencoded({ extended: false }));
 app.use(body.json()); 
 
-// Rutas
-app.use('/', busproductoRoutes);
-app.use('/', NuevosProductos);
-app.use('/', ActNuevosProductos);
-app.use('/', EliminarProductoRoutes);
+
+app.use('/',productoRoutes)
+app.use('/',mascotasRoutes)
+app.use('/',citasRoutes)
 app.use('/', authController);  
 app.use('/', userController); 
 
@@ -55,3 +53,5 @@ const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
+
+
