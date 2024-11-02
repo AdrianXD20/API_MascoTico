@@ -9,7 +9,7 @@ class CitaRepository {
     return new Promise((resolve, reject) => {
       this.db.query('SELECT * FROM citas', (err, results) => {
         if (err) {
-          console.error('Error en obtener citas query:', err); // Registro detallado
+          console.error('Error en obtener citas query:', err); 
           return reject(err);
         }
         resolve(results);

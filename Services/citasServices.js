@@ -11,7 +11,7 @@ class CitasServices {
     }
   
     obtenerCitasPorId(Id) {
-      return this.citasRepository.obtenerCitasPorId(Id);
+      return this.CitaRepository.obtenerCitasPorId(Id);
     }
   
     crearCitas(nuevoProducto) {

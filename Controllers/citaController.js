@@ -16,9 +16,9 @@ class CitaController {
     async obtenerCitasPorId(req, res) {
       try {
         const id = req.params.id;
-        const producto = await this.citasService.obtenerCitasPorId(id);
-        if (producto) {
-          res.json(producto);
+        const citas = await this.citasService.obtenerCitasPorId(id);
+        if (citas) {
+          res.json(citas);
         } else {
           res.status(404).json({ message: 'Cita no encontrado' });
         }

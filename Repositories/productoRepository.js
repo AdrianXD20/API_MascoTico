@@ -9,7 +9,7 @@ class ProductoRepository {
     return new Promise((resolve, reject) => {
       this.db.query('SELECT * FROM productos', (err, results) => {
         if (err) {
-          console.error('Error en obtenerProductos query:', err); // Registro detallado
+          console.error('Error en obtenerProductos query:', err); 
           return reject(err);
         }
         resolve(results);
@@ -21,7 +21,7 @@ class ProductoRepository {
     return new Promise((resolve, reject) => {
       this.db.query('SELECT * FROM productos WHERE id = ?', [id], (err, results) => {
         if (err) {
-          console.error('Error en obtenerProductoPorId query:', err); // Registro detallado
+          console.error('Error en obtenerProductoPorId query:', err); 
           return reject(err);
         }
         resolve(results[0]);
@@ -33,7 +33,7 @@ class ProductoRepository {
     return new Promise((resolve, reject) => {
       this.db.query('INSERT INTO productos SET ?', nuevoProducto, (err, result) => {
         if (err) {
-          console.error('Error en crearProducto query:', err); // Registro detallado
+          console.error('Error en crearProducto query:', err); 
           return reject(err);
         }
         resolve({ id: result.insertId, ...nuevoProducto });
@@ -48,7 +48,7 @@ class ProductoRepository {
         [datosActualizados, Id],
         (err, result) => {
           if (err) {
-            console.error('Error en actualizarProducto query:', err); // Registro detallado
+            console.error('Error en actualizarProducto query:', err); 
             return reject(err);
           }
           resolve(result.affectedRows > 0 ? { Id, ...datosActualizados } : null);
@@ -61,7 +61,7 @@ class ProductoRepository {
     return new Promise((resolve, reject) => {
       this.db.query('DELETE FROM productos WHERE id = ?', [Id], (err, result) => {
         if (err) {
-          console.error('Error en eliminarProducto query:', err); // Registro detallado
+          console.error('Error en eliminarProducto query:', err); 
           return reject(err);
         }
         resolve(result.affectedRows > 0);

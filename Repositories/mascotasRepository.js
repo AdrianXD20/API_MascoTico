@@ -9,7 +9,7 @@ class MascotaRepository {
     return new Promise((resolve, reject) => {
       this.db.query('SELECT * FROM mascotas', (err, results) => {
         if (err) {
-          console.error('Error en obtener Macotas query:', err); // Registro detallado
+          console.error('Error en obtener Macotas query:', err); 
           return reject(err);
         }
         resolve(results);

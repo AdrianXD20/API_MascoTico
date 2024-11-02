@@ -37,7 +37,7 @@ const mascotasController = new MascotaController(mascotaService);
  * /mascotas:
  *   get:
  *     summary: Obtener todos los productos
- *     tags: [Productos]
+ *     tags: [Mascotas]
  *     security:
  *       - bearerAuth: []  
  *     responses:
@@ -59,7 +59,7 @@ router.get('/mascotas', verifyToken, (req, res) => mascotasController.obtenerMas
  * /mascotas/{id}:
  *   get:
  *     summary: Obtener un producto por ID
- *     tags: [Productos]
+ *     tags: [Mascotas]
  *     security:
  *       - bearerAuth: []  
  *     parameters:
@@ -86,7 +86,7 @@ router.get('/mascotas/:id', verifyToken, (req, res) => mascotasController.obtene
  * /mascotas:
  *   post:
  *     summary: Crear un nuevo producto
- *     tags: [Productos]
+ *     tags: [Mascotas]
  *     security:
  *       - bearerAuth: []  
  *     requestBody:
@@ -105,14 +105,14 @@ router.get('/mascotas/:id', verifyToken, (req, res) => mascotasController.obtene
  *       400:
  *         description: Error en la solicitud
  */
-router.post('/mascotas', verifyToken, (req, res) => mascotasRepository.crearMascota(req, res));
+router.post('/mascotas', verifyToken, (req, res) => mascotasController.crearMascotas(req, res));
 
 /**
  * @swagger
  * /mascotas/{id}:
  *   put:
  *     summary: Actualizar un producto por ID
- *     tags: [Productos]
+ *     tags: [Mascotas]
  *     security:
  *       - bearerAuth: []  
  *     parameters:
@@ -143,7 +143,7 @@ router.put('/mascotas/:id', verifyToken, (req, res) => mascotasController.actual
  * /mascotas/{id}:
  *   delete:
  *     summary: Eliminar un producto por ID
- *     tags: [Productos]
+ *     tags: [Mascotas]
  *     security:
  *       - bearerAuth: []  
  *     parameters:
@@ -153,7 +153,7 @@ router.put('/mascotas/:id', verifyToken, (req, res) => mascotasController.actual
  *           type: integer
  *         required: true
  *         description: ID del producto a eliminar
- *     responses:
+ *     responses: 
  *       200:
  *         description: Producto eliminado exitosamente
  *       404:

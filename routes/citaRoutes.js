@@ -34,7 +34,7 @@ const citasController = new CitasController(citasService);
  * /citas:
  *   get:
  *     summary: Obtener todos los productos
- *     tags: [Productos]
+ *     tags: [Citas]
  *     security:
  *       - bearerAuth: []  
  *     responses:
@@ -56,7 +56,7 @@ router.get('/citas', verifyToken, (req, res) => citasController.obtenerCitas(req
  * /citas/{id}:
  *   get:
  *     summary: Obtener un producto por ID
- *     tags: [Productos]
+ *     tags: [Citas]
  *     security:
  *       - bearerAuth: []  
  *     parameters:
@@ -72,7 +72,7 @@ router.get('/citas', verifyToken, (req, res) => citasController.obtenerCitas(req
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Producto'
+ *               $ref: '#/components/schemas/Citas'
  *       404:
  *         description: Producto no encontrado
  */
@@ -83,7 +83,7 @@ router.get('/citas/:id', verifyToken, (req, res) => citasController.obtenerCitas
  * /citas:
  *   post:
  *     summary: Crear un nuevo producto
- *     tags: [Productos]
+ *     tags: [Citas]
  *     security:
  *       - bearerAuth: []  
  *     requestBody:
@@ -109,7 +109,7 @@ router.post('/citas', verifyToken, (req, res) => citasController.crearCitas(req,
  * /citas/{id}:
  *   put:
  *     summary: Actualizar un producto por ID
- *     tags: [Productos]
+ *     tags: [Citas]
  *     security:
  *       - bearerAuth: []  
  *     parameters:
@@ -140,7 +140,7 @@ router.put('/citas/:id', verifyToken, (req, res) => citasController.actualizarCi
  * /citas/{id}:
  *   delete:
  *     summary: Eliminar un producto por ID
- *     tags: [Productos]
+ *     tags: [Citas]
  *     security:
  *       - bearerAuth: []  
  *     parameters:

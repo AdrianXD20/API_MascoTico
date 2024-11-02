@@ -7,7 +7,7 @@ const swaggerUI = require('swagger-ui-express');
 const specs = require('./swagger/swagger.js');
 const env = require('dotenv').config();
 
-const authController = require('./Controllers/authController'); 
+const authController = require('./routes/authController.js'); 
 const userController = require('./Controllers/userController'); 
 
 const productoRoutes = require('./routes/productoRoutes.js')
@@ -16,7 +16,7 @@ const citasRoutes = require('./routes/citaRoutes.js')
 
 
 const allowed = [
-    'https://alexyah064.github.io', 
+    'https://AdrianXD20.github.io', 
     'http://127.0.0.1:5501', 
     'http://localhost:3000',
     'mysql://uq92kg8809ftify2:GzKZ4C98MmKvQvv32tP1@bpdddt3swjtee4chka49-mysql.services.clever-cloud.com:3306/bpdddt3swjtee4chka49%20Host%20bpdddt3swjtee4chka49-mysql.services.clever-cloud.com'
