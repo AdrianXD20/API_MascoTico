@@ -20,6 +20,7 @@ const allowed = [
     'https://AdrianXD20.github.io', 
     'http://127.0.0.1:5501', 
     'http://localhost:3000',
+    'https://api-mascoticos.onrender.com',
     'mysql://uq92kg8809ftify2:GzKZ4C98MmKvQvv32tP1@bpdddt3swjtee4chka49-mysql.services.clever-cloud.com:3306/bpdddt3swjtee4chka49%20Host%20bpdddt3swjtee4chka49-mysql.services.clever-cloud.com'
 ];
 
