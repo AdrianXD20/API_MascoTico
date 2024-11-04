@@ -2,16 +2,16 @@
 const db= require('../database/conexion');
 
 
-class extraRepository{
+class ventaRepository{
     constructor(db){
         this.db=db;
     }
 
-    obtenerExtra(){
+    obtenerVentas(){
         return new Promise((resolve, rejects)=>{
-            this.db.query('SELECT * FROM caracteristicas_extras', (err, results)=>{
+            this.db.query('SELECT * FROM ventas', (err, results)=>{
                 if(err){
-                    console.error('Error al obtener las caracteristicas Extra: ', err)
+                    console.error('Error al obtener las ventas: ', err)
                     return rejects(err)
                 }
                 resolve(results)
@@ -20,11 +20,11 @@ class extraRepository{
         });
     }
 
-    obtenerExtraPorId(Id){
+    obtenerVentaPorId(Id){
         return new Promise((resolve, rejects)=>{
-            this.db.query('SELECT * FROM caracteristicas_extras WHERE id= ?',[Id] , (err, results)=>{
+            this.db.query('SELECT * FROM ventas WHERE id= ?',[Id] , (err, results)=>{
                 if(err){
-                    console.error('Error en la busqueda de la caracteritica Extra: ', err)
+                    console.error('Error en la busqueda de la venta: ', err)
                     return rejects(err)
                 }
                 resolve(results)
@@ -32,11 +32,11 @@ class extraRepository{
         });
     }
 
-    crearExtra(nuevoExtra){
+    crearVenta(nuevaVenta){
         return new Promise ((resolve, rejects)=>{
-            this.db.query('INSERT INTO caracteristicas_extras SET ?', nuevoExtra, (err, results)=>{
+            this.db.query('INSERT INTO ventas SET ?', nuevaVenta, (err, results)=>{
                 if(err){
-                    console.error('Error al crear una caracteristica extra: ', err)
+                    console.error('Error al crear una venta: ', err)
                     return rejects(err)
                 }
                 resolve(results)
@@ -44,11 +44,11 @@ class extraRepository{
         })
     }
 
-    actualizarExtra(Id, datosActualizados){
+    actualizarVenta(Id, datosActualizados){
         return new Promise ((resolve, rejects) => {
-            this.db.query('UPDATE caracteristicas_extras SET ? WHERE id= ?', [datosActualizados, Id], (err,results)=>{
+            this.db.query('UPDATE ventas SET ? WHERE id= ?', [datosActualizados, Id], (err,results)=>{
                 if(err){
-                    console.error('Error al actualizar los datos: ', err);
+                    console.error('Error al actualizar la venta:  ', err);
                     return rejects(err)
                 }
                 resolve(results.affectedRows > 0 ? {Id, ...datosActualizados} : null)
@@ -56,11 +56,11 @@ class extraRepository{
         });
     }
 
-    eliminarExtra(Id){
+    eliminarVenta(Id){
         return new Promise((resolve, rejects)=>{
-            this.db.query('DELETE FROM caracteristicas_extras WHERE id= ?', [Id], (err,results)=>{
+            this.db.query('DELETE FROM ventas WHERE id= ?', [Id], (err,results)=>{
                 if(err){
-                    console.error('Error al Eliminar los datos: ', err);
+                    console.error('Error al Eliminar las: ventas ', err);
                     return rejects(err)
                 }
                 resolve(results.affectedRows > 0);
@@ -71,4 +71,4 @@ class extraRepository{
 
 
 
-module.exports= extraRepository;
+module.exports= ventaRepository;
