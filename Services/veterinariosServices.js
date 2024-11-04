@@ -5,15 +5,15 @@ class VeterinarioService{
         this.veterinarioRepository = new veterinarioRepository(db)
     }
 
-    obtenerVeterianrios(){
+    obtenerVeterinarios(){
         return this.veterinarioRepository.obtenerVeterinarios();
     }
 
-    obtenerVeterianrioPorId(Id){
+    obtenerVeterinarioPorId(Id){
         return this.veterinarioRepository.obtenerVeterinarioPorId(Id);
     }
 
-    crearVeterinarios(nuevoVeterinario){
+    crearVeterinario(nuevoVeterinario){
         return this.veterinarioRepository.crearVeterinarios(nuevoVeterinario)
     }
 

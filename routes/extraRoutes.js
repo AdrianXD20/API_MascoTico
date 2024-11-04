@@ -63,7 +63,7 @@ router.get('/caracteristicas', verifyToken, (req, res) => extraController.obtene
 
 /**
  * @swagger
- * /caracteristicas/id:{id}:
+ * /caracteristicas/{id}:
  *   get:
  *     summary: Obtener una característica extra por ID
  *     tags: [CaracteristicasExtras]
@@ -86,7 +86,7 @@ router.get('/caracteristicas', verifyToken, (req, res) => extraController.obtene
  *       404:
  *         description: Característica extra no encontrada
  */
-router.get('/caracteristicas/id:?', verifyToken, (req, res) => extraController.obtenerExtraPorId(req, res));
+router.get('/caracteristicas/:id', verifyToken, (req, res) => extraController.obtenerExtraPorId(req, res));
 
 /**
  * @swagger
@@ -112,7 +112,7 @@ router.post('/caracteristicas', verifyToken, (req, res) => extraController.crear
 
 /**
  * @swagger
- * /caracteristicas/id:{id}:
+ * /caracteristicas/{id}:
  *   put:
  *     summary: Actualizar una característica extra por ID
  *     tags: [CaracteristicasExtras]
@@ -140,11 +140,11 @@ router.post('/caracteristicas', verifyToken, (req, res) => extraController.crear
  *         description: Datos de entrada no válidos
  */
 
-router.put('/caracteristicas/id:?', verifyToken, (req, res) => extraController.actualizarExtra(req, res));
+router.put('/caracteristicas/:id', verifyToken, (req, res) => extraController.actualizarExtra(req, res));
 
 /**
  * @swagger
- * /caracteristicas/id:{id}:
+ * /caracteristicas/{id}:
  *   delete:
  *     summary: Eliminar una característica extra por ID
  *     tags: [CaracteristicasExtras]
@@ -163,4 +163,6 @@ router.put('/caracteristicas/id:?', verifyToken, (req, res) => extraController.a
  *       404:
  *         description: Característica extra no encontrada
  */
-router.delete('/caracteristicas/id:?', verifyToken, (req, res) => extraController.eliminarExtra(req, res));
+router.delete('/caracteristicas/:id', verifyToken, (req, res) => extraController.eliminarExtra(req, res));
+
+module.exports = router;

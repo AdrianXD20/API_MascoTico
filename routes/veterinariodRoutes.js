@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 const {verifyToken} = require('../middleware/authMiddleware');
 
-const VeterianrioController= require('../Controllers/veterinariosController');
+const VeterinarioController= require('../Controllers/veterinariosController');
 const VeterinarioService= require('../Services/veterinariosServices');
 const VeterinarioRepository = require ('../Repositories/veterinariosRepository');
 
 const veterinarioRepository = new VeterinarioRepository();
 const veterinariosServices = new VeterinarioService(veterinarioRepository);
-const veterinariosController = new VeterianrioController(veterinariosServices);
+const veterinariosController = new VeterinarioController(veterinariosServices);
 
 /**
  * @swagger
@@ -46,7 +46,7 @@ const veterinariosController = new VeterianrioController(veterinariosServices);
 
 /**
  * @swagger
- * /veterianrios:
+ * /veterinarios:
  *   get:
  *     summary: Obtener todos los veterinarios
  *     tags: [Veterinarios]
@@ -65,7 +65,7 @@ const veterinariosController = new VeterianrioController(veterinariosServices);
  *         description: No se encontraron veterinarios
  */
 
-router.get('/veterianrios',verifyToken, (req,res)=> veterinariosController.obtenerVeterinarios(req,res));
+router.get('/veterinarios',verifyToken, (req,res)=> veterinariosController.obtenerVeterinarios(req,res));
 
 /**
  * @swagger
@@ -168,4 +168,6 @@ router.put('/veterinario/:id', verifyToken, (req, res)=> veterinariosController.
  *       404:
  *         description: Veterinario no encontrado
  */
-router.delete('/veterinario/:id', verifyToken, (req, res) => veterinariosController.eliminarVeterinarios(req,res));
+router.delete('/veterinario/:id', verifyToken, (req, res) => veterinariosController.eliminarVeterinario(req,res));
+
+module.exports= router;

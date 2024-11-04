@@ -59,10 +59,10 @@ class VeterinarioController{
         }
     }
 
-    async eliminarVeterinarios(req,res){
+    async eliminarVeterinario(req,res){
         try{
             const id= req.params.id;
-            const veterianrio = await this.veterinarioService.eliminarVeterinarios(id);
+            const veterinario = await this.veterinarioService.eliminarVeterinario(id);
             if(veterinario){
                 res.json({message:'Veterinario Eliminado'});
             } else{

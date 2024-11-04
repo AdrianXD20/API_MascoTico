@@ -10,7 +10,7 @@ class veterinarioRepository{
     obtenerVeterinarios(){
         return new Promise ((resolve,reject)=>{
 
-            this.db.query('SELECT * FROM veterianrios',(err, result) => {
+            this.db.query('SELECT * FROM veterinarios',(err, result) => {
                 if(err){
                     console.error('Error al obtener los Veterianrios: ', err)
                     return reject(err)
@@ -22,7 +22,7 @@ class veterinarioRepository{
 
     obtenerVeterinarioPorId(Id){
         return new Promise ((resolve, reject)=> {
-            this.db.query('SELECT * FROM veterinarios WHERE id = ?', [id], (err,result)=>{
+            this.db.query('SELECT * FROM veterinarios WHERE id = ?', [Id], (err,result)=>{
                 if(err){
                     console.error('Error al obtener ese Veterinario: ', err);
                     return reject(err)
@@ -39,14 +39,14 @@ class veterinarioRepository{
                     console.error('Error al crear un nuevo Veterinario: ', err);
                     return rejects(err)
                 }
-                resolve ({id:result.insertedId, ...nuevoVeterinario})
+                resolve ({id:result.inserteId, ...nuevoVeterinario})
             })
         })
     }
 
     actualizarVeterinario(Id, datosActualizados){
         return new Promise ((resolve, rejects)=>{
-            this.db.query('UPDATE veterianrios SET ? WHERE id= ?', [datosActualizados,Id], (err,result)=>{
+            this.db.query('UPDATE veterinarios SET ? WHERE id= ?', [datosActualizados,Id], (err,result)=>{
                 if(err){
                     console.error('Erros al moemnto de Actualizar Datos: ', err)
                     return rejects(err)
@@ -58,7 +58,7 @@ class veterinarioRepository{
 
     eliminarVeterinario(Id){
         return new Promise ((resolve,rejects)=>{
-            this.db.query('DELETE FROM veterinarios WHERE id = ?', [id], (err, result)=>{
+            this.db.query('DELETE FROM veterinarios WHERE id = ?', [Id], (err, result)=>{
                 if(err){
                     console.error('Error al eliminar al Veterianrio: ', err);
                     return rejects(err)

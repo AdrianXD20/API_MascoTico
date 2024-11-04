@@ -1,7 +1,7 @@
 
 class extraController{
     constructor(extraService){
-        this.extraService= new extraService;
+        this.extraService=  extraService;
     }
 
     async obtenerExtra(req,res){
@@ -17,7 +17,7 @@ class extraController{
 
     async obtenerExtraPorId(req,res){
         try{
-            const id = req.body.id;
+            const id = req.params.id;
             const extra = await this.extraService.obtenerExtraPorId(id);
             if (extra) {
                 res.json(extra);
@@ -43,7 +43,7 @@ class extraController{
 
     async actualizarExtra(req,res){
         try{
-            const id= req.body.id;
+            const id= req.params.id;
             const datosActualizados = req.body;
             const extra = await this.extraService.actualizarExtra(id, datosActualizados);
             if (extra) {
@@ -59,7 +59,7 @@ class extraController{
 
     async eliminarExtra(req,res){
         try{
-            const id = req.body.id;
+            const id = req.params.id;
             const extra = await this.extraService.eliminarExtra(id);
             if (extra) {
                 res.json({message:'Caracteristica Extra Eliminada'});
