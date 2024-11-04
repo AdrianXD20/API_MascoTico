@@ -1,15 +1,15 @@
-const express = require('express');
-const router = express.Router();
-const ProductoController = require('../Controllers/productoController');
-const ProductoService = require('../Services/productoServices');
-const ProductoRepository = require('../Repositories/productoRepository');
-const {verifyToken} = require('../middleware/authMiddleware')
+    const express = require('express');
+    const router = express.Router();
+    const ProductoController = require('../Controllers/productoController');
+    const ProductoService = require('../Services/productoServices');
+    const ProductoRepository = require('../Repositories/productoRepository');
+    const {verifyToken} = require('../middleware/authMiddleware')
 
-const productoRepository = new ProductoRepository();
-const productoService = new ProductoService(productoRepository);
-const productoController = new ProductoController(productoService);
+    const productoRepository = new ProductoRepository();
+    const productoService = new ProductoService(productoRepository);
+    const productoController = new ProductoController(productoService);
 
-/**
+    /**
  * @swagger
  * components:
  *   schemas:
@@ -21,14 +21,26 @@ const productoController = new ProductoController(productoService);
  *           example: 1
  *         nombre:
  *           type: string
- *           example: "Producto Ejemplo"
+ *           example: "Collar para perro"
+ *         marca:
+ *           type: string
+ *           example: "Marca Ejemplo"
+ *         mascota:
+ *           type: string
+ *           example: "Perro"
+ *         edad:
+ *           type: string
+ *           example: "Adulto"
  *         precio:
  *           type: number
  *           format: float
- *           example: 19.99
- *         descripcion:
- *           type: string
- *           example: "Descripción del producto"
+ *           example: 49.99
+ *         stock:
+ *           type: integer
+ *           example: 100
+ *         idCaracteristicasExtras:
+ *           type: integer
+ *           example: 2
  *       required:
  *         - id
  *         - nombre
@@ -55,7 +67,7 @@ const productoController = new ProductoController(productoService);
  *       404:
  *         description: No se encontraron productos
  */
-router.get('/productos', verifyToken, (req, res) => productoController.obtenerProductos(req, res));
+    router.get('/productos', verifyToken, (req, res) => productoController.obtenerProductos(req, res));
 
 /**
  * @swagger
@@ -82,7 +94,7 @@ router.get('/productos', verifyToken, (req, res) => productoController.obtenerPr
  *       404:
  *         description: Producto no encontrado
  */
-router.get('/productos/:id', verifyToken, (req, res) => productoController.obtenerProductoPorId(req, res));
+    router.get('/productos/:id', verifyToken, (req, res) => productoController.obtenerProductoPorId(req, res));
 
 /**
  * @swagger
@@ -108,7 +120,7 @@ router.get('/productos/:id', verifyToken, (req, res) => productoController.obten
  *       400:
  *         description: Error en la solicitud
  */
-router.post('/productos', verifyToken, (req, res) => productoController.crearProducto(req, res));
+    router.post('/productos', verifyToken, (req, res) => productoController.crearProducto(req, res));
 
 /**
  * @swagger
@@ -139,8 +151,7 @@ router.post('/productos', verifyToken, (req, res) => productoController.crearPro
  *       404:
  *         description: Producto no encontrado
  */
-router.put('/productos/:id', verifyToken, (req, res) => productoController.actualizarProducto(req, res));
-
+    router.put('/productos/:id', verifyToken, (req, res) => productoController.actualizarProducto(req, res));
 /**
  * @swagger
  * /productos/{id}:
@@ -162,7 +173,7 @@ router.put('/productos/:id', verifyToken, (req, res) => productoController.actua
  *       404:
  *         description: Producto no encontrado
  */
-router.delete('/productos/:id', verifyToken, (req, res) => productoController.eliminarProducto(req, res));
+    router.delete('/productos/:id', verifyToken, (req, res) => productoController.eliminarProducto(req, res));
 
 
-module.exports = router;
+    module.exports = router;

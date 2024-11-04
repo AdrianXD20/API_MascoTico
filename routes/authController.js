@@ -1,8 +1,20 @@
 const express = require('express');
-const { check, validationResult } = require('express-validator');
-const authService = require('../Services/authService.js');
-
 const router = express.Router();
+const { check, validationResult } = require('express-validator');
+
+const authService = require('../Services/authService.js');
+const UsuarioController= require ('../Controllers/usuarioController.js');
+const UserRepository = require('../Repositories/UserRepository.js');
+const { verifyToken } = require('../middleware/authMiddleware.js');
+
+
+
+
+
+////(/)
+const userRepository = new UserRepository();
+const userService = new authService(userRepository);
+const userController = new UsuarioController(userService)
 
 /**
  * @swagger
@@ -19,13 +31,22 @@ const router = express.Router();
  *           schema:
  *             type: object
  *             required:
- *               - Name
- *               - Password
+ *               - nombre
+ *               - apellido
+ *               - email
+ *               - contraseña
  *             properties:
- *               Name:
+ *               nombre:
  *                 type: string
  *                 description: Nombre del usuario
- *               Password:
+ *               apellido:
+ *                 type: string
+ *                 description: Apellido del usuario
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 description: Correo electrónico del usuario (debe ser único)
+ *               contraseña:
  *                 type: string
  *                 description: Contraseña del usuario (mínimo 6 caracteres)
  *     responses:
@@ -36,9 +57,15 @@ const router = express.Router();
  *             schema:
  *               type: object
  *               properties:
- *                 Name:
+ *                 nombre:
  *                   type: string
  *                   description: Nombre del usuario registrado
+ *                 apellido:
+ *                   type: string
+ *                   description: Apellido del usuario registrado
+ *                 email:
+ *                   type: string
+ *                   description: Correo electrónico del usuario registrado
  *       400:
  *         description: Error de validación
  *         content:
@@ -57,24 +84,7 @@ const router = express.Router();
  *       500:
  *         description: Error en el servidor
  */
-router.post('/register', [
-    check('Name').not().isEmpty().withMessage('El nombre de usuario es requerido'),
-    check('Password').isLength({ min: 6 }).withMessage('La contraseña debe tener al menos 6 caracteres')
-], async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-    }
-
-    try {
-        const { Name, Password } = req.body;
-        const newUser = await authService.register(Name, Password);
-        res.status(201).json(newUser);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
-
+router.post('/register',(req,res) => userController.crearUsuario(req,res));
 
 /**
  * @swagger
@@ -91,13 +101,13 @@ router.post('/register', [
  *           schema:
  *             type: object
  *             required:
- *               - Name
- *               - Password
+ *               - email
+ *               - contraseña
  *             properties:
- *               Name:
+ *               email:
  *                 type: string
- *                 description: Nombre del usuario
- *               Password:
+ *                 description: Correo del usuario
+ *               contraseña:
  *                 type: string
  *                 description: Contraseña del usuario
  *     responses:
@@ -122,14 +132,6 @@ router.post('/register', [
  *                   type: string
  *                   description: Mensaje de error
  */
-router.post('/login', async (req, res) => {
-    try {
-        const { Name, Password } = req.body;
-        const token = await authService.login(Name, Password);
-        res.json({ token });
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
-});
+router.post('/login',(req,res)=> userController.login(req,res));
 
 module.exports = router;

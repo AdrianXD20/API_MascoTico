@@ -1,35 +1,60 @@
 const fs = require('fs-extra');
 const User = require('../Models/UserModel.js');
+const bcrypt = require('bcryptjs')
 
-const filePath = './Data/Users.json';
+const db = require('../database/conexion.js');
+const { errorMonitor } = require('events');
+
 
 class UserRepository {
-    // Método para guardar usuarios en el archivo JSON
-    async saveUsers(users) {
-        try {
-            await fs.writeJson(filePath, users);
-        } catch (error) {
-            console.error('Error al guardar usuarios:', error.message);
-        }
+
+    constructor(db) {
+        this.db = db;    
     }
+    crearUsuario(nuevoUsuario){
+        return  new Promise((resolve, reject)=>{
+            bcrypt.hash(nuevoUsuario.contraseña, 6 , (err,hash) => {
+                if(err){
+                    console.log('Error al momento de hashear la contraseña: ', err);
+                    return reject(err)
+                }
+                const contraseñaHash = { ...nuevoUsuario, contraseña: hash}
+            this.db.query('INSERT INTO usuarios SET ?', contraseñaHash, (err,result)=>{
+                if(err){
+                console.error('Error en crear usuario: ', err);
+                return reject(err);
+                }
+                resolve({id: result.insertedId, ...contraseñaHash});
+            });
+        });
+    })
+};
 
-    // Método para obtener usuarios desde el archivo JSON
-    async getUsers() {
-        try {
-            const data = await fs.readJson(filePath);
-            
-            // Verifica si los datos son un array
-            if (!Array.isArray(data)) {
-                throw new Error('Los datos de usuarios no son un array');
-            }
 
-            // Mapea los datos a instancias de la clase User
-            return data.map(user => new User(user.Id, user.Name, user.Password));
-        } catch (error) {
-            console.error('Error en getUsers:', error.message);
-            return []; // Devuelve un array vacío en caso de error
-        }
+
+    login(email, contraseña){
+        return new Promise ((resolve, reject)=>{
+            this.db.query('SELECT * FROM usuarios Where email= ?' ,[email],(err, results) => {
+                if(err){
+                    console.log('Error en realizar Login: ', err)
+                    return reject(err)
+                }
+                if(results.length === 0){
+                    return reject(new Error('Usuario no Existe'))
+                }
+                const usuario = results[0];
+                bcrypt.compare(contraseña, usuario.contraseña, (err,exito) =>{
+                    if(err){
+                        console.log('Tuvimos un problema comparando la contraseña: ', err);
+                        return reject(err)
+                    }
+                    if(!exito){
+                        return reject(new Error('La contraseña es incorrecta plebeson. '))
+                    }
+                    resolve({id: usuario.id, email: usuario.email, nombre: usuario.nombre})
+                })
+            })
+        })
     }
 }
-
 module.exports = UserRepository; // Exporta la clase UserRepository

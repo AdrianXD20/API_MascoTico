@@ -1,9 +1,11 @@
 class User{
-    constructor(Id,Name,Password)
+    constructor(id,nombre,apellido, email, contraseña)
     {
-        this.Id= Id;
-        this.Name = Name;
-        this.Password= Password
+        this.id= id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.contraseña= contraseña;
 
     }
 
