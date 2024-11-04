@@ -13,9 +13,8 @@ const userController = require('./Controllers/userController');
 const productoRoutes = require('./routes/productoRoutes.js')
 const mascotasRoutes = require('./routes/mascotasRoutes.js')
 const citasRoutes = require('./routes/citaRoutes.js')
+const veterinarioRoutes = require('./routes/veterinariodRoutes.js')
 const extraRoutes = require('./routes/extraRoutes.js')
-const veterianriosRoutes = require('./routes/veterinariodRoutes.js')
-
 
 
 const allowed = [
@@ -50,12 +49,9 @@ app.use('/',productoRoutes)
 app.use('/',mascotasRoutes)
 app.use('/',citasRoutes)
 app.use('/', extraRoutes)
-app.use('/', veterianriosRoutes)
+app.use('/', veterinarioRoutes)
 app.use('/', authController);  
 app.use('/', userController); 
-
-
-
 
 // Puerto
 const PORT = process.env.PORT;
