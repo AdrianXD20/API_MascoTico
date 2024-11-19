@@ -7,16 +7,16 @@ class veterinarioRepository{
         this.db = db;
     }
 
-    obtenerVeterinarios(){
+    obtenerVeterinarios(limit,offset){
         return new Promise ((resolve,reject)=>{
 
-            this.db.query('SELECT * FROM veterinarios',(err, result) => {
+            this.db.query('SELECT * FROM veterinarios LIMIT ? OFFSET ?', [limit,offset],(err, result) => {
                 if(err){
                     console.error('Error al obtener los Veterianrios: ', err)
                     return reject(err)
                 }
                 resolve(result)
-            })
+            })  
         })
     }
 

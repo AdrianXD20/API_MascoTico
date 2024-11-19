@@ -37,6 +37,19 @@ const citasController = new CitasController(citasService);
  *     tags: [Citas]
  *     security:
  *       - bearerAuth: []  
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           default: 1
+ *         description: Número de página (por defecto es 1)
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           default: 10
+ *         description: Cantidad de registros por página (por defecto es 10)                                                                                      
  *     responses:
  *       200:
  *         description: Lista de todos los productos

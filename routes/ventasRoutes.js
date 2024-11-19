@@ -53,6 +53,19 @@ const ventaController = new VentaController(ventaService);
  *     tags: [Ventas]
  *     security:
  *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           default: 1
+ *         description: Número de página (por defecto es 1)
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           default: 10
+ *         description: Cantidad de registros por página (por defecto es 10)
  *     responses:
  *       200:
  *         description: Lista de todas las ventas
@@ -65,7 +78,7 @@ const ventaController = new VentaController(ventaService);
  *       404:
  *         description: No se encontraron ventas
  */
-router.get('/ventas', verifyToken, (req, res) => ventaController.obtenerVenta(req, res));
+router.get('/ventas', verifyToken, (req, res) => ventaController.obtenerVentas(req, res));
 
 /**
  * @swagger

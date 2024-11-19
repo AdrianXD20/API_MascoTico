@@ -5,9 +5,9 @@ class MascotaRepository {
     this.db = db;
   }
 
-  obtenerMascotas() {
+  obtenerMascotas(limit, offset) {
     return new Promise((resolve, reject) => {
-      this.db.query('SELECT * FROM mascotas', (err, results) => {
+      this.db.query('SELECT * FROM mascotas LIMIT ? OFFSET ?', [limit, offset], (err, results) => {
         if (err) {
           console.error('Error en obtener Macotas query:', err); 
           return reject(err);

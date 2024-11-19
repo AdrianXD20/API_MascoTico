@@ -5,7 +5,12 @@ class ventaController{
 
     async obtenerVentas(req, res){
         try{
-            const ventas =  await this.ventaService.obtenerVentas();
+
+            const {page=1 , limit} = req.query
+
+            const pageNumber =parseInt(page);
+            const pageSize = parseInt(limit) || 10;
+            const ventas =  await this.ventaService.obtenerVentas(pageNumber,pageSize)
             res.json(ventas)
         }
         catch(error){

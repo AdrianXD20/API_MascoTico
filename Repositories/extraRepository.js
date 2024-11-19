@@ -7,9 +7,9 @@ class extraRepository{
         this.db=db;
     }
 
-    obtenerExtra(){
+    obtenerExtra(limit, offset){
         return new Promise((resolve, rejects)=>{
-            this.db.query('SELECT * FROM caracteristicas_extras', (err, results)=>{
+            this.db.query('SELECT * FROM caracteristicas_extras LIMIT ? OFFSET ?', [limit, offset] ,(err, results)=>{
                 if(err){
                     console.error('Error al obtener las caracteristicas Extra: ', err)
                     return rejects(err)

@@ -5,7 +5,10 @@ class ProductoController {
 
   async obtenerProductos(req, res) {
     try {
-      const productos = await this.productoService.obtenerProductos();
+      const {page=1, limit} = req.query
+      const pageNumber= parseInt(page);
+      const pageSize = parseInt(limit);
+      const productos = await this.productoService.obtenerProductos(pageNumber,pageSize);
       res.json(productos);
     } catch (error) {
       console.error('Error en obtenerProductos:', error); 

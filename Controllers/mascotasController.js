@@ -5,7 +5,10 @@ class MascotaController {
   
     async obtenerMascotas(req, res) {
       try {
-        const productos = await this.mascotaService.obtenerMascotas();
+        const {page= 1, limit} = req.query
+        const pageNumber = parseInt(page)
+        const pageSize = parseInt(limit)
+        const productos = await this.mascotaService.obtenerMascotas(pageNumber,pageSize);
         res.json(productos);
       } catch (error) {
         console.error('Error en obtenerMascotas:', error); 

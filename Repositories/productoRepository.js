@@ -5,9 +5,9 @@ class ProductoRepository {
     this.db = db;
   }
 
-  obtenerProductos() {
+  obtenerProductos(limit, offset) {
     return new Promise((resolve, reject) => {
-      this.db.query('SELECT * FROM productos', (err, results) => {
+      this.db.query('SELECT * FROM productos LIMIT ? OFFSET ?', [limit, offset],(err, results) => {
         if (err) {
           console.error('Error en obtenerProductos query:', err); 
           return reject(err);

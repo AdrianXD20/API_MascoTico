@@ -5,9 +5,9 @@ class CitaRepository {
     this.db = db;
   }
 
-  obtenerCitas() {
+  obtenerCitas(limit, offset) {
     return new Promise((resolve, reject) => {
-      this.db.query('SELECT * FROM citas', (err, results) => {
+      this.db.query('SELECT * FROM citas LIMIT ? OFFSET ?',[limit, offset] ,(err, results) => {
         if (err) {
           console.error('Error en obtener citas query:', err); 
           return reject(err);

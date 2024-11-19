@@ -6,8 +6,9 @@ class CitasServices {
     this.CitaRepository = new CitaRepository(db);
     }
   
-    obtenerCitas() {
-      return this.CitaRepository.obtenerCitas();
+    obtenerCitas(page, limit) {
+      const offset = (page-1) * limit;
+      return this.CitaRepository.obtenerCitas(limit, offset);
     }
   
     obtenerCitasPorId(Id) {

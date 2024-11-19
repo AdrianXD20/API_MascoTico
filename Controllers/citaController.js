@@ -1,3 +1,5 @@
+const { parse } = require("path");
+
 class CitaController {
     constructor(citasService) {
       this.citasService = citasService;
@@ -5,7 +7,11 @@ class CitaController {
   
     async obtenerCitas(req, res) {
       try {
-        const productos = await this.citasService.obtenerCitas();
+        const{page=1, limit} = req.query
+
+        const pageNumber = parseInt(page);
+        const pageSize = parseInt(limit);
+        const productos = await this.citasService.obtenerCitas(pageNumber, pageSize);
         res.json(productos);
       } catch (error) {
         console.error('Error en obtener Citas:', error); 

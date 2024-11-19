@@ -6,7 +6,11 @@ class extraController{
 
     async obtenerExtra(req,res){
         try{
-            const extra = await this.extraService.obtenerExtra();
+            const {page=1, limit} = req.query
+
+            const pageNumber= parseInt(page)
+            const pageSize= parseInt(limit)
+            const extra = await this.extraService.obtenerExtra(pageNumber,pageSize);
             res.json(extra)
 
         }catch(err){

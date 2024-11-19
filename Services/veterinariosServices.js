@@ -5,8 +5,9 @@ class VeterinarioService{
         this.veterinarioRepository = new veterinarioRepository(db)
     }
 
-    obtenerVeterinarios(){
-        return this.veterinarioRepository.obtenerVeterinarios();
+    obtenerVeterinarios(page,limit){
+        const offset = (page-1) * limit;
+        return this.veterinarioRepository.obtenerVeterinarios(limit, offset);
     }
 
     obtenerVeterinarioPorId(Id){

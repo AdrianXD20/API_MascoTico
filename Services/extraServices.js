@@ -6,8 +6,9 @@ class extraService{
         this.extraRepository =  new extraRepository(db)
     }
 
-    obtenerExtra(){
-        return this.extraRepository.obtenerExtra();
+    obtenerExtra(page, limit){
+        const offset = (page-1) * limit;
+        return this.extraRepository.obtenerExtra(limit, offset);
     }
 
     obtenerExtraPorId(Id){

@@ -6,8 +6,9 @@ class ProductoService {
     this.productoRepository = new productoRepository(db);
     }
   
-    obtenerProductos() {
-      return this.productoRepository.obtenerProductos();
+    obtenerProductos(page, limit) {
+      const offset = (page - 1) * limit;
+      return this.productoRepository.obtenerProductos(limit, offset);
     }
   
     obtenerProductoPorId(Id) {

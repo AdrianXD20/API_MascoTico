@@ -7,9 +7,9 @@ class ventaRepository{
         this.db=db;
     }
 
-    obtenerVentas(){
+    obtenerVentas(limit, offset){
         return new Promise((resolve, rejects)=>{
-            this.db.query('SELECT * FROM ventas', (err, results)=>{
+            this.db.query('SELECT * FROM ventas LIMIT ? OFFSET ?',[limit, offset], (err, results)=>{
                 if(err){
                     console.error('Error al obtener las ventas: ', err)
                     return rejects(err)

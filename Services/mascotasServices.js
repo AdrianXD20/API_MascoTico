@@ -6,8 +6,9 @@ class mascotasServices {
     this.MascotaRepository = new MascotaRepository(db);
     }
   
-    obtenerMascotas() {
-      return this.MascotaRepository.obtenerMascotas();
+    obtenerMascotas(page, limit) {
+      const offset= (page-1) * limit;
+      return this.MascotaRepository.obtenerMascotas(limit, offset);
     }
   
     obtenerMascotasPorId(Id) {

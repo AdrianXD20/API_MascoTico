@@ -6,8 +6,9 @@ class extraService{
         this.ventaRepository =  new ventaRepository(db)
     }
 
-    obtenerVentas(){
-        return this.ventaRepository.obtenerVentas();
+    obtenerVentas(page,limit){
+        const offset = (page -1) * limit
+        return this.ventaRepository.obtenerVentas(limit,offset);
     }
 
     obtenerVentaPorId(Id){

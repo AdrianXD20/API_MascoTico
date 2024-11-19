@@ -5,7 +5,11 @@ class VeterinarioController{
 
     async obtenerVeterinarios(req, res){
         try{
-            const veterianrios =  await this.veterinarioService.obtenerVeterinarios();
+            const {page = 1, limit} = req.query;
+
+            const pageNumber = parseInt(page);
+            const pageSize = parseInt(limit) || 10;
+            const veterianrios =  await this.veterinarioService.obtenerVeterinarios(pageNumber,pageSize);
             res.json(veterianrios)
         }
         catch(error){
