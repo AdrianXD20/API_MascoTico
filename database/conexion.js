@@ -1,4 +1,4 @@
-const mysql = require('mysql2'); // Importa versión con Promesas
+const mysql = require('mysql2/promise'); // Importa versión con Promesas
 
 // Crear el pool de conexiones
 const db = mysql.createPool({
