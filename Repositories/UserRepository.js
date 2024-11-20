@@ -32,24 +32,30 @@ class UserRepository {
     async login(email, password) {
         try {
             const [results] = await this.db.execute('SELECT * FROM usuarios WHERE email = ?', [email]);
-
+    
             if (results.length === 0) {
                 throw new Error('Usuario no encontrado.');
             }
-
+    
             const usuario = results[0];
             const exito = await bcrypt.compare(password, usuario.password); // Comparación con el hash de la contraseña
-
+    
             if (!exito) {
                 throw new Error('La contraseña es incorrecta.');
             }
-
-            return { id: usuario.id, email: usuario.email, nombre: usuario.nombre, apellido: usuario.apellido }; // Ahora se incluye apellido
+    
+            return { 
+                id: usuario.id, 
+                email: usuario.email, 
+                nombre: usuario.nombre, 
+                apellido: usuario.apellido 
+            };
         } catch (err) {
             console.log('Error al realizar el login:', err);
             throw err;
         }
     }
+    
 }
 
 module.exports = UserRepository;
