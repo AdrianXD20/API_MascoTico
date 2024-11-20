@@ -9,12 +9,17 @@ class UserRepository {
     // Crear un nuevo usuario
     async crearUsuario(nuevoUsuario) {
         try {
-            const hash = await bcrypt.hash(nuevoUsuario.contraseña, 6);
-            const usuarioConContraseñaHash = { ...nuevoUsuario, contraseña: hash };
+            const hash = await bcrypt.hash(nuevoUsuario.password, 6); // Cambié "contraseña" por "password"
+            const usuarioConContraseñaHash = { ...nuevoUsuario, password: hash };
     
             // Especificar las columnas y valores explícitamente
-            const sql = 'INSERT INTO usuarios (email, nombre, contraseña) VALUES (?, ?, ?)';
-            const [result] = await this.db.execute(sql, [usuarioConContraseñaHash.email, usuarioConContraseñaHash.nombre, usuarioConContraseñaHash.contraseña]);
+            const sql = 'INSERT INTO usuarios (email, nombre, apellido, password) VALUES (?, ?, ?, ?)';
+            const [result] = await this.db.execute(sql, [
+                usuarioConContraseñaHash.email, 
+                usuarioConContraseñaHash.nombre, 
+                usuarioConContraseñaHash.apellido, // Ahora se incluye apellido
+                usuarioConContraseñaHash.password // Inserción de password con hash
+            ]);
     
             return { id: result.insertId, ...usuarioConContraseñaHash };
         } catch (err) {
@@ -24,7 +29,7 @@ class UserRepository {
     }
 
     // Función de login (iniciar sesión)
-    async login(email, contraseña) {
+    async login(email, password) {
         try {
             const [results] = await this.db.execute('SELECT * FROM usuarios WHERE email = ?', [email]);
 
@@ -33,13 +38,13 @@ class UserRepository {
             }
 
             const usuario = results[0];
-            const exito = await bcrypt.compare(contraseña, usuario.contraseña);
+            const exito = await bcrypt.compare(password, usuario.password); // Comparación con el hash de la contraseña
 
             if (!exito) {
                 throw new Error('La contraseña es incorrecta.');
             }
 
-            return { id: usuario.id, email: usuario.email, nombre: usuario.nombre };
+            return { id: usuario.id, email: usuario.email, nombre: usuario.nombre, apellido: usuario.apellido }; // Ahora se incluye apellido
         } catch (err) {
             console.log('Error al realizar el login:', err);
             throw err;

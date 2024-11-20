@@ -5,11 +5,12 @@ class MascotaRepository {
     this.db = db;
   }
 
+  // Obtener mascotas con limit y offset
   obtenerMascotas(limit, offset) {
     return new Promise((resolve, reject) => {
       this.db.query('SELECT * FROM mascotas LIMIT ? OFFSET ?', [limit, offset], (err, results) => {
         if (err) {
-          console.error('Error en obtener Macotas query:', err); 
+          console.error('Error en obtener Mascotas query:', err); 
           return reject(err);
         }
         resolve(results);
@@ -17,6 +18,7 @@ class MascotaRepository {
     });
   }
 
+  // Obtener mascota por ID
   obtenerMascotasPorId(id) {
     return new Promise((resolve, reject) => {
       this.db.query('SELECT * FROM mascotas WHERE id = ?', [id], (err, results) => {
@@ -24,31 +26,37 @@ class MascotaRepository {
           console.error('Error en obtenerMascotaPorId query:', err); 
           return reject(err);
         }
-        resolve(results[0]);
+        resolve(results[0]); // Solo retorna el primer resultado
       });
     });
   }
 
-  crearMascotas(nuevoProducto) {
+  // Crear una nueva mascota
+  crearMascotas(nuevaMascota) {
     return new Promise((resolve, reject) => {
-      this.db.query('INSERT INTO mascotas SET ?', nuevoProducto, (err, result) => {
-        if (err) {
-          console.error('Error en crear Mascota query:', err); 
-          return reject(err);
-        }
-        resolve({ id: result.insertId, ...nuevoProducto });
-      });
-    });
-  }
-
-  actualizarMascotas(Id, datosActualizados) {
-    return new Promise((resolve, reject) => {
-      this.db.query(
-        'UPDATE mascotas SET ? WHERE id = ?',
-        [datosActualizados, Id],
+      // Insertamos los valores de nuevaMascota en la tabla mascotas
+      this.db.query('INSERT INTO mascotas (nombre, raza, id_usuario) VALUES (?, ?, ?)', 
+        [nuevaMascota.nombre, nuevaMascota.raza || null, nuevaMascota.id_usuario || null], 
         (err, result) => {
           if (err) {
-            console.error('Error en actualizar mascotas query:', err); 
+            console.error('Error en crear Mascota query:', err); 
+            return reject(err);
+          }
+          resolve({ id: result.insertId, ...nuevaMascota });
+        });
+    });
+  }
+
+  // Actualizar datos de una mascota
+  actualizarMascotas(Id, datosActualizados) {
+    return new Promise((resolve, reject) => {
+      // Actualizamos la mascota con los nuevos datos
+      this.db.query(
+        'UPDATE mascotas SET nombre = ?, raza = ?, id_usuario = ? WHERE id = ?',
+        [datosActualizados.nombre, datosActualizados.raza || null, datosActualizados.id_usuario || null, Id],
+        (err, result) => {
+          if (err) {
+            console.error('Error en actualizar Mascotas query:', err); 
             return reject(err);
           }
           resolve(result.affectedRows > 0 ? { Id, ...datosActualizados } : null);
@@ -57,6 +65,7 @@ class MascotaRepository {
     });
   }
 
+  // Eliminar mascota por ID
   eliminarMascotas(Id) {
     return new Promise((resolve, reject) => {
       this.db.query('DELETE FROM mascotas WHERE id = ?', [Id], (err, result) => {
@@ -64,7 +73,7 @@ class MascotaRepository {
           console.error('Error en eliminar Mascotas query:', err); 
           return reject(err);
         }
-        resolve(result.affectedRows > 0);
+        resolve(result.affectedRows > 0); // Retorna true si se eliminó al menos una fila
       });
     });
   }

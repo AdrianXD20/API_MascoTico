@@ -1,74 +1,68 @@
-const { rejects } = require('assert');
 const db = require('../database/conexion');
-const { resolve } = require('path');
 
-class veterinarioRepository{
-    constructor(db){
+class VeterinarioRepository {
+    constructor(db) {
         this.db = db;
     }
 
-    obtenerVeterinarios(limit,offset){
-        return new Promise ((resolve,reject)=>{
-
-            this.db.query('SELECT * FROM veterinarios LIMIT ? OFFSET ?', [limit,offset],(err, result) => {
-                if(err){
-                    console.error('Error al obtener los Veterianrios: ', err)
-                    return reject(err)
-                }
-                resolve(result)
-            })  
-        })
+    // Obtener veterinarios con paginación
+    async obtenerVeterinarios(limit, offset) {
+        try {
+            const [result] = await this.db.execute('SELECT * FROM veterinarios LIMIT ? OFFSET ?', [limit, offset]);
+            return result;
+        } catch (err) {
+            console.error('Error al obtener los Veterinarios: ', err);
+            throw err; // Se lanza el error para manejarlo en el controlador
+        }
     }
 
-    obtenerVeterinarioPorId(Id){
-        return new Promise ((resolve, reject)=> {
-            this.db.query('SELECT * FROM veterinarios WHERE id = ?', [Id], (err,result)=>{
-                if(err){
-                    console.error('Error al obtener ese Veterinario: ', err);
-                    return reject(err)
-                }
-                resolve(result[0]);
-            })
-        })
+    // Obtener un veterinario por su ID
+    async obtenerVeterinarioPorId(Id) {
+        try {
+            const [result] = await this.db.execute('SELECT * FROM veterinarios WHERE id = ?', [Id]);
+            return result[0]; // Retornamos el primer veterinario encontrado
+        } catch (err) {
+            console.error('Error al obtener ese Veterinario: ', err);
+            throw err;
+        }
     }
 
-    crearVeterinarios(nuevoVeterinario){
-        return new Promise ((resolve,rejects)=>{
-            this.db.query('INSERT INTO veterinarios SET ?', nuevoVeterinario,(err,result)=>{
-                if(err){
-                    console.error('Error al crear un nuevo Veterinario: ', err);
-                    return rejects(err)
-                }
-                resolve ({id:result.inserteId, ...nuevoVeterinario})
-            })
-        })
+    // Crear un nuevo veterinario
+    async crearVeterinario(nuevoVeterinario) {
+        try {
+            const [result] = await this.db.execute('INSERT INTO veterinarios (grado_estudio, especialidad, nombre, apellido, dni) VALUES (?, ?, ?, ?, ?)', 
+                [nuevoVeterinario.grado_estudio, nuevoVeterinario.especialidad, nuevoVeterinario.nombre, nuevoVeterinario.apellido, nuevoVeterinario.dni]);
+
+            return { id: result.insertId, ...nuevoVeterinario }; // Retorna el ID generado y los datos del veterinario
+        } catch (err) {
+            console.error('Error al crear un nuevo Veterinario: ', err);
+            throw err;
+        }
     }
 
-    actualizarVeterinario(Id, datosActualizados){
-        return new Promise ((resolve, rejects)=>{
-            this.db.query('UPDATE veterinarios SET ? WHERE id= ?', [datosActualizados,Id], (err,result)=>{
-                if(err){
-                    console.error('Erros al moemnto de Actualizar Datos: ', err)
-                    return rejects(err)
-                }
-                resolve (result.affectedRows > 0 ? {Id, ...datosActualizados} : null)
-            })
-        })
+    // Actualizar los datos de un veterinario
+    async actualizarVeterinario(Id, datosActualizados) {
+        try {
+            const [result] = await this.db.execute('UPDATE veterinarios SET grado_estudio = ?, especialidad = ?, nombre = ?, apellido = ?, dni = ? WHERE id = ?', 
+                [datosActualizados.grado_estudio, datosActualizados.especialidad, datosActualizados.nombre, datosActualizados.apellido, datosActualizados.dni, Id]);
+
+            return result.affectedRows > 0 ? { Id, ...datosActualizados } : null; // Retorna null si no se actualizó nada
+        } catch (err) {
+            console.error('Error al momento de actualizar datos: ', err);
+            throw err;
+        }
     }
 
-    eliminarVeterinario(Id){
-        return new Promise ((resolve,rejects)=>{
-            this.db.query('DELETE FROM veterinarios WHERE id = ?', [Id], (err, result)=>{
-                if(err){
-                    console.error('Error al eliminar al Veterianrio: ', err);
-                    return rejects(err)
-                }
-                resolve(result.affectedRows > 0);
-            })
-        })
+    // Eliminar un veterinario
+    async eliminarVeterinario(Id) {
+        try {
+            const [result] = await this.db.execute('DELETE FROM veterinarios WHERE id = ?', [Id]);
+            return result.affectedRows > 0; // Retorna true si se eliminó correctamente
+        } catch (err) {
+            console.error('Error al eliminar al Veterinario: ', err);
+            throw err;
+        }
     }
-
 }
 
-
-module.exports= veterinarioRepository;
+module.exports = VeterinarioRepository;
