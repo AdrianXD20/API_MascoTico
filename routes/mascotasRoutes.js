@@ -21,25 +21,28 @@ const mascotasController = new MascotaController(mascotaService);
  *           example: 1
  *         nombre:
  *           type: string
- *           example: "rei Ejemplo"
+ *           example: "Luna"
  *         raza:
  *           type: string
- *           example: "rei "
- * 
+ *           example: "ShihTzu"
+ *         id_usuario:
+ *           type: integer
+ *           example: 1075
  *       required:
  *         - id
  *         - nombre
  *         - raza
+ *         - id_usuario
  */
 
 /**
  * @swagger
  * /mascotas:
  *   get:
- *     summary: Obtener todos los productos
+ *     summary: Obtener todas las mascotas
  *     tags: [Mascotas]
  *     security:
- *       - bearerAuth: [] 
+ *       - bearerAuth: []
  *     parameters:
  *       - in: query
  *         name: page
@@ -52,18 +55,18 @@ const mascotasController = new MascotaController(mascotaService);
  *         schema:
  *           type: integer
  *           default: 10
- *         description: Cantidad de registros por página (por defecto es 10) 
+ *         description: Cantidad de registros por página (por defecto es 10)
  *     responses:
  *       200:
- *         description: Lista de todos los productos
+ *         description: Lista de todas las mascotas
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
- *                 $ref: '#/components/schemas/Producto'
+ *                 $ref: '#/components/schemas/Mascota'
  *       404:
- *         description: No se encontraron productos
+ *         description: No se encontraron mascotas
  */
 router.get('/mascotas', verifyToken, (req, res) => mascotasController.obtenerMascotas(req, res));
 
@@ -71,26 +74,26 @@ router.get('/mascotas', verifyToken, (req, res) => mascotasController.obtenerMas
  * @swagger
  * /mascotas/{id}:
  *   get:
- *     summary: Obtener un producto por ID
+ *     summary: Obtener una mascota por ID
  *     tags: [Mascotas]
  *     security:
- *       - bearerAuth: []  
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
  *         schema:
  *           type: integer
  *         required: true
- *         description: ID del producto a buscar
+ *         description: ID de la mascota a buscar
  *     responses:
  *       200:
- *         description: Producto encontrado
+ *         description: Mascota encontrada
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Producto'
+ *               $ref: '#/components/schemas/Mascota'
  *       404:
- *         description: Producto no encontrado
+ *         description: Mascota no encontrada
  */
 router.get('/mascotas/:id', verifyToken, (req, res) => mascotasController.obtenerMascotasPorId(req, res));
 
@@ -98,23 +101,23 @@ router.get('/mascotas/:id', verifyToken, (req, res) => mascotasController.obtene
  * @swagger
  * /mascotas:
  *   post:
- *     summary: Crear un nuevo producto
+ *     summary: Crear una nueva mascota
  *     tags: [Mascotas]
  *     security:
- *       - bearerAuth: []  
+ *       - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Producto'
+ *             $ref: '#/components/schemas/Mascota'
  *     responses:
  *       201:
- *         description: Producto creado exitosamente
+ *         description: Mascota creada exitosamente
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Producto'
+ *               $ref: '#/components/schemas/Mascota'
  *       400:
  *         description: Error en la solicitud
  */
@@ -124,30 +127,30 @@ router.post('/mascotas', verifyToken, (req, res) => mascotasController.crearMasc
  * @swagger
  * /mascotas/{id}:
  *   put:
- *     summary: Actualizar un producto por ID
+ *     summary: Actualizar una mascota por ID
  *     tags: [Mascotas]
  *     security:
- *       - bearerAuth: []  
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
  *         schema:
  *           type: integer
  *         required: true
- *         description: ID del producto a actualizar
+ *         description: ID de la mascota a actualizar
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Producto'
+ *             $ref: '#/components/schemas/Mascota'
  *     responses:
  *       200:
- *         description: Producto actualizado exitosamente
+ *         description: Mascota actualizada exitosamente
  *       400:
  *         description: Error en la solicitud
  *       404:
- *         description: Producto no encontrado
+ *         description: Mascota no encontrada
  */
 router.put('/mascotas/:id', verifyToken, (req, res) => mascotasController.actualizarMascotas(req, res));
 
@@ -155,22 +158,22 @@ router.put('/mascotas/:id', verifyToken, (req, res) => mascotasController.actual
  * @swagger
  * /mascotas/{id}:
  *   delete:
- *     summary: Eliminar un producto por ID
+ *     summary: Eliminar una mascota por ID
  *     tags: [Mascotas]
  *     security:
- *       - bearerAuth: []  
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
  *         schema:
  *           type: integer
  *         required: true
- *         description: ID del producto a eliminar
- *     responses: 
+ *         description: ID de la mascota a eliminar
+ *     responses:
  *       200:
- *         description: Producto eliminado exitosamente
+ *         description: Mascota eliminada exitosamente
  *       404:
- *         description: Producto no encontrado
+ *         description: Mascota no encontrada
  */
 router.delete('/mascotas/:id', verifyToken, (req, res) => mascotasController.eliminarMascotas(req, res));
 

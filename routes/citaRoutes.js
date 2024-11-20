@@ -19,24 +19,39 @@ const citasController = new CitasController(citasService);
  *         id:
  *           type: integer
  *           example: 1
+ *         id_mascota:
+ *           type: integer
+ *           example: 856
+ *         id_veterinario:
+ *           type: integer
+ *           example: 1103
+ *         id_usuario:
+ *           type: integer
+ *           example: 157
  *         nombre_mascota:
  *           type: string
- *           example: "rei Ejemplo"
- *       
- * 
+ *           example: "Lucy"
+ *         fecha:
+ *           type: string
+ *           format: date
+ *           example: "28-12-24"
  *       required:
  *         - id
+ *         - id_mascota
+ *         - id_veterinario
+ *         - id_usuario
  *         - nombre_mascota
+ *         - fecha
  */
 
 /**
  * @swagger
  * /citas:
  *   get:
- *     summary: Obtener todos los productos
+ *     summary: Obtener todas las citas
  *     tags: [Citas]
  *     security:
- *       - bearerAuth: []  
+ *       - bearerAuth: []
  *     parameters:
  *       - in: query
  *         name: page
@@ -49,18 +64,18 @@ const citasController = new CitasController(citasService);
  *         schema:
  *           type: integer
  *           default: 10
- *         description: Cantidad de registros por página (por defecto es 10)                                                                                      
+ *         description: Cantidad de registros por página (por defecto es 10)
  *     responses:
  *       200:
- *         description: Lista de todos los productos
+ *         description: Lista de todas las citas
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
- *                 $ref: '#/components/schemas/Producto'
+ *                 $ref: '#/components/schemas/Citas'
  *       404:
- *         description: No se encontraron productos
+ *         description: No se encontraron citas
  */
 router.get('/citas', verifyToken, (req, res) => citasController.obtenerCitas(req, res));
 
@@ -68,26 +83,26 @@ router.get('/citas', verifyToken, (req, res) => citasController.obtenerCitas(req
  * @swagger
  * /citas/{id}:
  *   get:
- *     summary: Obtener un producto por ID
+ *     summary: Obtener una cita por ID
  *     tags: [Citas]
  *     security:
- *       - bearerAuth: []  
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
  *         schema:
  *           type: integer
  *         required: true
- *         description: ID del producto a buscar
+ *         description: ID de la cita a buscar
  *     responses:
  *       200:
- *         description: Producto encontrado
+ *         description: Cita encontrada
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Citas'
  *       404:
- *         description: Producto no encontrado
+ *         description: Cita no encontrada
  */
 router.get('/citas/:id', verifyToken, (req, res) => citasController.obtenerCitasPorId(req, res));
 
@@ -95,23 +110,23 @@ router.get('/citas/:id', verifyToken, (req, res) => citasController.obtenerCitas
  * @swagger
  * /citas:
  *   post:
- *     summary: Crear un nuevo producto
+ *     summary: Crear una nueva cita
  *     tags: [Citas]
  *     security:
- *       - bearerAuth: []  
+ *       - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Producto'
+ *             $ref: '#/components/schemas/Citas'
  *     responses:
  *       201:
- *         description: Producto creado exitosamente
+ *         description: Cita creada exitosamente
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Producto'
+ *               $ref: '#/components/schemas/Citas'
  *       400:
  *         description: Error en la solicitud
  */
@@ -121,30 +136,30 @@ router.post('/citas', verifyToken, (req, res) => citasController.crearCitas(req,
  * @swagger
  * /citas/{id}:
  *   put:
- *     summary: Actualizar un producto por ID
+ *     summary: Actualizar una cita por ID
  *     tags: [Citas]
  *     security:
- *       - bearerAuth: []  
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
  *         schema:
  *           type: integer
  *         required: true
- *         description: ID del producto a actualizar
+ *         description: ID de la cita a actualizar
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Producto'
+ *             $ref: '#/components/schemas/Citas'
  *     responses:
  *       200:
- *         description: Producto actualizado exitosamente
+ *         description: Cita actualizada exitosamente
  *       400:
  *         description: Error en la solicitud
  *       404:
- *         description: Producto no encontrado
+ *         description: Cita no encontrada
  */
 router.put('/citas/:id', verifyToken, (req, res) => citasController.actualizarCitas(req, res));
 
@@ -152,22 +167,22 @@ router.put('/citas/:id', verifyToken, (req, res) => citasController.actualizarCi
  * @swagger
  * /citas/{id}:
  *   delete:
- *     summary: Eliminar un producto por ID
+ *     summary: Eliminar una cita por ID
  *     tags: [Citas]
  *     security:
- *       - bearerAuth: []  
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
  *         schema:
  *           type: integer
  *         required: true
- *         description: ID del producto a eliminar
+ *         description: ID de la cita a eliminar
  *     responses:
  *       200:
- *         description: Producto eliminado exitosamente
+ *         description: Cita eliminada exitosamente
  *       404:
- *         description: Producto no encontrado
+ *         description: Cita no encontrada
  */
 router.delete('/citas/:id', verifyToken, (req, res) => citasController.eliminarCitas(req, res));
 
