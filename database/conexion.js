@@ -1,38 +1,33 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2'); // Importa versión con Promesas
 
-let db;
+// Crear el pool de conexiones
+const db = mysql.createPool({
+    host: process.env.db_host,
+    user: process.env.db_user,
+    password: process.env.db_password,
+    database: process.env.db_name,
+    waitForConnections: true,
+    connectionLimit: 10, // Límite de conexiones simultáneas
+    queueLimit: 0, // Sin límite de solicitudes en espera
+});
 
-function connectToDatabase() {
-    db = mysql.createConnection({
-        host: process.env.db_host,
-        user: process.env.db_user,
-        password: process.env.db_password,
-        database: process.env.db_name,
-    });
+// Verificar la conexión inicial
+(async () => {
+    try {
+        // Realiza una consulta inicial para validar la conexión
+        await db.query('SELECT 1');
+        console.log('Conexión inicial exitosa a la base de datos');
+    } catch (err) {
+        console.error('Error al realizar la conexión inicial a la base de datos:', err);
+    }
+})();
 
-    // Manejo de conexión
-    db.connect((err) => {
-        if (err) {
-            console.error('Error al conectar a la base de datos:', err);
-            setTimeout(connectToDatabase, 5000); // Reintenta la conexión después de 5 segundos
-        } else {
-            console.log('Conexión exitosa a la base de datos');
-        }
-    });
-
-    // Manejo de errores durante la conexión
-    db.on('error', (err) => {
-        if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-            console.error('Conexión perdida con la base de datos. Intentando reconectar...');
-            connectToDatabase(); // Reconecta si la conexión se pierde
-        } else {
-            console.error('Error en la conexión a la base de datos:', err);
-            throw err;
-        }
-    });
-}
-
-// Inicializa la conexión a la base de datos
-connectToDatabase();
+// Monitorear errores en el pool (opcional)
+db.on('error', (err) => {
+    console.error('Error en el pool de conexiones:', err);
+    if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+        console.warn('Conexión con la base de datos perdida. El pool gestionará una reconexión automáticamente.');
+    }
+});
 
 module.exports = db;

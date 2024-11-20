@@ -19,7 +19,7 @@ class UserRepository {
                     return reject(err)
                 }
                 const contraseñaHash = { ...nuevoUsuario, contraseña: hash}
-            this.db.query('INSERT INTO usuarios SET ?', contraseñaHash, (err,result)=>{
+            this.db.execute('INSERT INTO usuarios SET ?', contraseñaHash, (err,result)=>{
                 if(err){
                 console.error('Error en crear usuario: ', err);
                 return reject(err);
@@ -34,7 +34,7 @@ class UserRepository {
 
     login(email, contraseña){
         return new Promise ((resolve, reject)=>{
-            this.db.query('SELECT * FROM usuarios Where email= ?' ,[email],(err, results) => {
+            this.db.execute('SELECT * FROM usuarios Where email= ?' ,[email],(err, results) => {
                 if(err){
                     console.log('Error en realizar Login: ', err)
                     return reject(err)
