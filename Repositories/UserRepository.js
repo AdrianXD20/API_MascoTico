@@ -7,21 +7,21 @@ class UserRepository {
     }
 
     // Crear un nuevo usuario
-    
     async crearUsuario(nuevoUsuario) {
         try {
             const hash = await bcrypt.hash(nuevoUsuario.contraseña, 6);
             const usuarioConContraseñaHash = { ...nuevoUsuario, contraseña: hash };
     
-            // Se pasa el objeto dentro de un arreglo
-            const [result] = await this.db.execute('INSERT INTO usuarios SET ?', [usuarioConContraseñaHash]);
+            // Especificar las columnas y valores explícitamente
+            const sql = 'INSERT INTO usuarios (email, nombre, contraseña) VALUES (?, ?, ?)';
+            const [result] = await this.db.execute(sql, [usuarioConContraseñaHash.email, usuarioConContraseñaHash.nombre, usuarioConContraseñaHash.contraseña]);
+    
             return { id: result.insertId, ...usuarioConContraseñaHash };
         } catch (err) {
             console.error('Error al crear el usuario:', err);
             throw err;
         }
     }
-    
 
     // Función de login (iniciar sesión)
     async login(email, contraseña) {
